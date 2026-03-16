@@ -1,72 +1,107 @@
 # bb-agent
 
-**Let any LLM automate the real web.** Including the cheap ones.
+**AI Agent for everyone. Every model. Every language. Every website.**
 
-bb-agent is an AI agent that uses [bb-browser](https://github.com/epiral/bb-browser) site adapters to interact with real websites — Twitter, Bilibili, Xiaohongshu, Douban, Reddit, YouTube, and [90+ more](https://github.com/epiral/bb-sites). No scraping, no Puppeteer, no screenshots. Just CLI commands that return structured JSON.
+**AI Agent 平权。任何模型，任何语言，任何网站。**
 
-bb-agent 是一个基于 [bb-browser](https://github.com/epiral/bb-browser) site adapter 的 AI Agent。通过 CLI 操作真实网站，不需要写爬虫，不需要截图识别，不需要 Puppeteer。一行命令，结构化 JSON 返回。
+bb-agent is an AI agent built on [bb-browser](https://github.com/epiral/bb-browser) site adapters. It doesn't need GPT-5 or Opus. It doesn't need frontier models. **A 7B open-source model running on your laptop is enough.**
 
-## Why / 为什么做这个
+bb-agent 基于 [bb-browser](https://github.com/epiral/bb-browser) 的 site adapter 构建。不需要 GPT-5，不需要 Opus，不需要前沿模型。**一个 7B 开源模型，跑在你的笔记本上，就够了。**
 
-There's a dirty secret about AI agents today: **most of them need Opus/GPT-5 tier models to do anything useful on the web.** Because "using a website" actually means writing code — reverse-engineering APIs, handling auth, parsing responses. That's senior-developer-level work.
+## The problem / 问题
 
-现在 AI Agent 有一个大家不太说的事实：**大部分 Agent 要在网上做点实际的事，需要 Opus/GPT-5 级别的模型。** 因为"使用一个网站"其实意味着写代码，逆向 API、处理认证、解析响应。这是高级开发的活。
+Today's AI agents have a class divide:
 
-bb-browser's site adapters change this equation:
+今天的 AI Agent 存在一个阶级分化：
 
-bb-browser 的 site adapter 改变了这个等式：
+- **Frontier models** (Opus, GPT-5) can write code to interact with websites — reverse-engineer APIs, handle auth, parse responses. They work, but they're expensive.
+- **Open-source models** (Qwen, GLM, Llama, DeepSeek) are smart enough to reason and plan, but they can't reliably write complex scraping code on the fly. So they're locked out of the real web.
+
+- **前沿模型**（Opus、GPT-5）能写代码跟网站交互，逆向 API、处理认证、解析响应。能用，但是贵。
+- **开源模型**（通义千问、智谱、Llama、DeepSeek）足够聪明，能推理能规划，但没法现场写出复杂的爬虫代码。所以它们被挡在了真实互联网之外。
+
+**This is not a model problem. It's an interface problem.**
+
+**这不是模型的问题，是接口的问题。**
+
+## The solution / 解法
+
+bb-browser's [95 site adapters](https://github.com/epiral/bb-sites) have already done the hard work — reverse-engineering APIs, handling cookies, parsing responses, all packaged into one-line CLI commands that return structured JSON.
+
+bb-browser 的 [95 个 site adapter](https://github.com/epiral/bb-sites) 已经做完了难的部分，逆向 API、处理 cookie、解析响应，全部封装成一行 CLI 命令，返回结构化 JSON。
+
+```
+# No code needed. Just CLI. Any model can do this.
+# 不需要写代码，就是 CLI。任何模型都会。
+
+bb-browser site twitter/search "AI agent"          → JSON
+bb-browser site twitter/following elonmusk         → JSON
+bb-browser site xiaohongshu/search "旅行攻略"       → JSON
+bb-browser site bilibili/search "深度学习"          → JSON
+bb-browser site youtube/search "machine learning"  → JSON
+```
+
+The intelligence requirement drops from writing code to calling commands:
+
+对模型的智力要求从写代码降到了调命令：
 
 ```
 Before / 之前:
-  Agent + Opus → (write code to call Twitter API) → get tweets
+  Agent needs Opus → (write code to reverse-engineer Twitter API) → maybe works
 
 After / 之后:
-  Agent + any model → bb-browser site twitter/search "query" → get tweets
+  Agent needs any model → bb-browser site twitter/search "query" → always works
 ```
 
-**The intelligence requirement drops from "senior developer" to "CLI boy".**
+**Use frontier models to BUILD the adapters. Use any model to RUN them.**
 
-**对模型的智力要求从"高级开发"降到了"会用命令行"。**
-
-This means Qwen, GLM, DeepSeek, Doubao — or any model that can string together a few CLI commands — can now do what previously required frontier models. Use expensive models to BUILD the adapters. Use cheap models to RUN them.
-
-这意味着通义千问、智谱、DeepSeek、豆包，或者任何能拼几个 CLI 命令的模型，现在都能干之前只有顶级模型才能干的事。用贵的模型来造 adapter，用便宜的模型来跑任务。
+**用前沿模型来造 adapter，用任何模型来跑任务。**
 
 ## What it can do / 能做什么
 
-With 95 adapters across 35+ platforms, bb-agent can:
+95 adapters across 35+ platforms. Twitter, YouTube, Reddit, Bilibili, Xiaohongshu, Douban, Zhihu, Weibo, HackerNews, GitHub, and more.
 
-基于 35+ 平台的 95 个 adapter，bb-agent 可以：
+95 个 adapter 覆盖 35+ 平台。推特、YouTube、Reddit、B站、小红书、豆瓣、知乎、微博、HackerNews、GitHub 等。
 
-- **Cross-platform intelligence** — Search Twitter, check Xiaohongshu, read Reddit, summarize YouTube, all in one workflow
-- **Social graph analysis** — Follow chains, find key people, map relationships
-- **Content monitoring** — Track keywords across platforms, aggregate sentiment
-- **Research automation** — Collect, compare, and synthesize information from multiple sources
+- **Cross-platform workflows** — search Twitter, check Xiaohongshu, read Reddit, all in one task
+- **Social graph analysis** — follow chains, find key people, map relationships
+- **Content monitoring** — track keywords across platforms
+- **Research automation** — collect and synthesize from multiple sources
 
-- **跨平台情报** — 搜推特、查小红书、读 Reddit、总结 YouTube，一个工作流搞定
+- **跨平台工作流** — 搜推特、查小红书、读 Reddit，一个任务搞定
 - **社交图谱分析** — 追踪关注链，找关键人物，画关系图
-- **内容监控** — 跨平台关键词追踪，舆情聚合
-- **调研自动化** — 从多个信息源收集、对比、综合信息
+- **内容监控** — 跨平台关键词追踪
+- **调研自动化** — 多源信息收集与综合
 
-## Architecture / 架构
+## How it works / 原理
 
 ```
-bb-agent (orchestrator, any LLM)
+bb-agent (any LLM: Qwen, GLM, DeepSeek, Llama, GPT, Claude...)
     │
-    ├── bb-browser site twitter/search "query"    → JSON
-    ├── bb-browser site twitter/following user     → JSON
-    ├── bb-browser site bilibili/search "query"   → JSON
-    ├── bb-browser site xiaohongshu/search "query" → JSON
-    ├── bb-browser site youtube/search "query"     → JSON
-    │         ...95 adapters across 35 platforms
+    │  "search Twitter for AI agents, then check who the top authors follow"
+    │
+    ├── bb-browser site twitter/search "AI agent"
+    ├── bb-browser site twitter/user {top_author}
+    ├── bb-browser site twitter/following {top_author}
+    │         ...just CLI commands, structured JSON in/out
     │
     ▼
-  Structured results → LLM reasoning → next action
+  Results → LLM reasoning → next action → repeat
 ```
 
-The key insight: **the browser is already logged in.** bb-browser runs in your Chrome with your cookies, your sessions, your auth. No API keys, no OAuth flows, no rate limit BS. The adapter runs JS in the page context — it IS the page.
+The browser is already logged in. bb-browser runs in your Chrome with your cookies, your sessions, your auth. No API keys needed. The adapter runs JS in the page context — it IS the page.
 
-核心洞察：**浏览器已经登录了。** bb-browser 运行在你的 Chrome 里，用你的 cookie、你的会话、你的登录态。不需要 API key，不需要 OAuth，没有频率限制的破事。adapter 在页面上下文里运行 JS，它就是页面本身。
+浏览器已经登录了。bb-browser 跑在你的 Chrome 里，用你的 cookie、你的会话、你的登录态。不需要 API key。adapter 在页面上下文里跑 JS，它就是页面本身。
+
+## Vision / 愿景
+
+We believe the ability to interact with the real web should not be gated behind expensive models.
+
+我们相信，跟真实互联网交互的能力，不应该被昂贵的模型垄断。
+
+A student running Qwen-7B on a laptop should be able to build the same cross-platform agent as someone paying $200/month for frontier APIs. The adapters are open source. The agent is open source. The models can be open source. **No gatekeepers.**
+
+一个学生用笔记本跑 Qwen-7B，应该能构建出跟花 $200/月用前沿 API 一样的跨平台 Agent。adapter 开源，Agent 开源，模型也可以开源。**没有看门人。**
 
 ## Status / 状态
 
