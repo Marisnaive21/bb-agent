@@ -95,13 +95,17 @@ The browser is already logged in. bb-browser runs in your Chrome with your cooki
 
 ## Vision / 愿景
 
-We believe the ability to interact with the real web should not be gated behind expensive models.
+I want to build an agent that my sister can use.
 
-我们相信，跟真实互联网交互的能力，不应该被昂贵的模型垄断。
+我想做一个我姐姐都能用的 agent。
 
-A student running open-source models should be able to build the same cross-platform agent as someone paying $200/month for frontier APIs. The adapters are open source. The agent is open source. The models can be open source. **No gatekeepers.**
+She's not a developer. She doesn't know what an API is. But she knows what she wants: "help me find good restaurants people are talking about on Xiaohongshu and Douban." That should just work.
 
-一个用开源模型的学生，应该能构建出跟花 $200/月用前沿 API 一样的跨平台 Agent。adapter 开源，Agent 开源，模型也可以开源。**没有看门人。**
+她不是开发者，不知道 API 是什么。但她知道自己想要什么："帮我看看小红书和豆瓣上大家在聊哪些好吃的餐厅。"这件事应该直接就能跑。
+
+If the agent needs Opus to work, she can't afford it. If it needs coding skills to set up, she won't use it. But if it runs on an open-source model locally, speaks Chinese, and operates websites she already uses — that's something real.
+
+如果 agent 需要 Opus 才能跑，她用不起。如果需要编程能力来配置，她不会用。但如果它能在本地跑开源模型，说中文，操作她平时就在用的那些网站，这才是真的有用。
 
 ## Status / 状态
 
